@@ -11,7 +11,7 @@ def get_openai_client(api_key=None):
         except (FileNotFoundError, KeyError):
             raise ValueError("OpenAI API key not found in environment or config file")
     return openai.OpenAI(api_key=api_key)
-def get_completion_and_token_count(client,prompt, model="gpt-4o-mini", temperature=0.7, max_tokens=100): 
+def get_completion_and_token_count(client,prompt, model, temperature=0.7, max_tokens=100): 
     try:
         response = client.chat.completions.create(
             model=model,
